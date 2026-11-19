@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: official list, roadmap to the platinum, missable flags, and a cited guide for every trophy.">
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5</p>
+      <h1>Leonida Ledger</h1>
+      <p class="tagline">The offline trophy guide &amp; tracker — all 55 trophies, a roadmap to the platinum, and a cited guide for every one.</p>
+    </div>
+    <div class="progress-card" id="progressCard" aria-live="polite">
+      <p class="big-count"><span id="earnedCount">0</span><span class="of"> / 55 earned</span></p>
+      <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+      <p class="grade-counts" id="gradeCounts"></p>
+      <p class="next-up" id="nextUp"></p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab" data-tab="tracker" id="tab-tracker">Tracker</button>
+    <button type="button" class="tab" data-tab="roadmap" id="tab-roadmap">Roadmap</button>
+    <button type="button" class="tab" data-tab="missables" id="tab-missables">Missables <span class="pill" id="missablePill">14</span></button>
+    <button type="button" class="tab" data-tab="about" id="tab-about">About &amp; sources</button>
+  </nav>
+</header>
+<main>
+  <section id="view-tracker" class="view" aria-label="Trophy tracker">
+    <div class="toolbar">
+      <label class="search">Search <input id="search" type="search" placeholder="Name, mission or keyword…" autocomplete="off"></label>
+      <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+        <button type="button" class="chip is-active" data-kind="all">All</button>
+        <button type="button" class="chip" data-kind="story">Story</button>
+        <button type="button" class="chip" data-kind="missable">Missable</button>
+        <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+        <button type="button" class="chip" data-kind="activities">Activities</button>
+        <button type="button" class="chip" data-kind="online">Online</button>
+      </div>
+      <label class="select">Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="select">Sort
+        <select id="sortFilter">
+          <option value="order">Roadmap order</option>
+          <option value="name">Name A–Z</option>
+          <option value="grade">Grade</option>
+        </select>
+      </label>
+    </div>
+    <div class="toolbar toolbar-second">
+      <label class="toggle"><input id="spoilerToggle" type="checkbox"> <span>Hide story spoilers — hide the names &amp; descriptions of story trophies until earned</span></label>
+      <label class="toggle"><input id="hideEarnedToggle" type="checkbox"> <span>Hide earned</span></label>
+      <div class="save-actions">
+        <button id="exportBtn" type="button">Export progress</button>
+        <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+        <button id="resetBtn" type="button" class="danger">Reset all</button>
+      </div>
+    </div>
+    <p class="list-meta" id="listMeta"></p>
+    <ol class="trophy-list" id="trophyList"></ol>
+    <p class="empty" id="emptyState" hidden>No trophies match these filters. Try clearing the search or choosing another kind.</p>
+  </section>
+  <section id="view-roadmap" class="view" aria-label="Roadmap to the platinum" hidden>
+    <p class="intro">Six stages, in the order to play them — built from the official trophy descriptions. Finish each stage before the next where the notes say so: the story finale is the point of no return for the missable trophies.</p>
+    <ol class="stages" id="stageList"></ol>
+  </section>
+  <section id="view-missables" class="view" aria-label="Missable trophies" hidden>
+    <div class="warning">
+      <h2>14 trophies can be missed</h2>
+      <p>These are the trophies tied to a single named story mission, a contact's final mission, or a one-off moment. The flags are built from the official descriptions — where the game lets you replay a mission this is only a caution, so do the flagged thing while the moment is in front of you and check the trophy pops.</p>
+    </div>
+    <ol class="trophy-list" id="missableList"></ol>
+  </section>
+  <section id="view-about" class="view" aria-label="About and sources" hidden>
+    <h2>About this guide</h2>
+    <p>Leonida Ledger is an offline guide and tracker for the 55 PlayStation 5 trophies of Grand Theft Auto VI: 1 platinum, 2 gold, 6 silver and 46 bronze, 28 of them hidden on PlayStation until earned. It runs entirely from its own files — no network, no account, no tracking. Your checklist, counters, notes and settings live in this browser only (localStorage) and can be exported to a file and imported back.</p>
+    <h2>How the guides were written</h2>
+    <p>Grand Theft Auto VI released on 19 November 2026, the day this guide was built, so no guide here has been checked in the game yet. Every guide is written in our own words from the trophy's official description and the counts PlayStation tracks — and where a place or step is not pinned down by the official description, the guide says so instead of guessing. That is the honest trade: a cited guide that admits what it does not know beats a detailed one that invents a location.</p>
+    <h2>Sources</h2>
+    <ul class="sources">
+      <li><a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — the official trophy list</a> (names, descriptions, grades)</li>
+      <li><a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles — trophy list and the counts PSN tracks</a> (such as 42 Shooting Range challenges)</li>
+    </ul>
+    <p>Official trophy names and descriptions are shown as PlayStation publishes them. Everything else — the guides, the roadmap, the missable flags — is this guide's own work, built from those descriptions. No Rockstar Games logo, artwork or screenshot of the game appears anywhere in this guide; the look is our own.</p>
+    <h2>How to use the tracker</h2>
+    <ul>
+      <li>Tick a trophy when it pops on your PlayStation — it stays ticked in this browser.</li>
+      <li>Counted trophies (stunts, cards, WAiNK spots and the rest) have a − / + counter: log the running total as you play.</li>
+      <li>Open any trophy for its full guide, its sources, its roadmap stage and a place for your own note.</li>
+      <li>Turn the spoiler setting on to hide story trophy names and descriptions until you earn them.</li>
+      <li>Export your progress before clearing browser data — import brings it back.</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p>Leonida Ledger — an unofficial, fan-made guide. Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide is not affiliated with or endorsed by Rockstar Games or PlayStation. Trophy names and descriptions are shown as PlayStation publishes them. MIT licensed — see LICENSE.</p>
+</footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
